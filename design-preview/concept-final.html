@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>최종 시안 - 조합</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --grad: linear-gradient(135deg, #6c47ff 0%, #ff6b8a 100%);
+    --p1: #6c47ff;
+    --bg: #f7f7f9;
+    --white: #ffffff;
+    --border: #e2e4ef;
+    --text: #14142b;
+    --text2: #6e7191;
+    --accent-light: #ededfd;
+  }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; line-height: 1.6; }
+
+  /* ── 공통 컨테이너 ── */
+  .wrap {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 0 40px;
+    width: 100%;
+  }
+
+  /* ─────────────────────────────────────────
+     NAV
+  ───────────────────────────────────────── */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(255,255,255,0.92); backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 1px 12px rgba(0,0,0,.05);
+  }
+  .nav-inner {
+    max-width: 1160px; margin: 0 auto; padding: 0 40px;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 60px;
+  }
+  .nav-logo {
+    font-size: 16px; font-weight: 800; letter-spacing: -0.5px;
+    background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .nav-links { display: flex; gap: 4px; list-style: none; }
+  .nav-links a {
+    color: var(--text2); text-decoration: none; font-size: 13px; font-weight: 500;
+    padding: 6px 14px; border-radius: 8px; transition: all .2s;
+  }
+  .nav-links a:hover { background: var(--accent-light); color: var(--p1); }
+
+  /* ─────────────────────────────────────────
+     HERO  (3번)
+  ───────────────────────────────────────── */
+  .hero {
+    background: var(--grad);
+    padding: 80px 0 110px;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute; top: -40%; right: 5%;
+    width: 520px; height: 520px; border-radius: 50%;
+    background: rgba(255,255,255,.07); pointer-events: none;
+  }
+  .hero::after {
+    content: ''; position: absolute; bottom: -30%; left: 15%;
+    width: 360px; height: 360px; border-radius: 50%;
+    background: rgba(255,255,255,.05); pointer-events: none;
+  }
+  .hero-inner { display: flex; align-items: center; gap: 64px; position: relative; z-index: 1; }
+  .hero-avatar {
+    width: 160px; height: 160px; border-radius: 32px; flex-shrink: 0;
+    background: rgba(255,255,255,.2); backdrop-filter: blur(10px);
+    border: 2px solid rgba(255,255,255,.35);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 64px; font-weight: 900; color: #fff;
+    box-shadow: 0 20px 40px rgba(0,0,0,.2);
+  }
+  .hero-text { color: #fff; }
+  .hero-badge {
+    display: inline-block;
+    background: rgba(255,255,255,.2); backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,.3); color: rgba(255,255,255,.95);
+    font-size: 12px; font-weight: 600; padding: 5px 14px;
+    border-radius: 999px; margin-bottom: 18px; letter-spacing: 1px; text-transform: uppercase;
+  }
+  .hero-text h1 {
+    font-size: clamp(34px, 4.5vw, 56px); font-weight: 900;
+    letter-spacing: -2px; line-height: 1.12; margin-bottom: 16px;
+  }
+  .hero-text p {
+    font-size: 16px; color: rgba(255,255,255,.82);
+    line-height: 1.8; max-width: 460px; margin-bottom: 24px;
+  }
+  .hero-quote {
+    font-size: 15px; font-style: italic; color: rgba(255,255,255,.75);
+    border-left: 3px solid rgba(255,255,255,.4); padding-left: 14px;
+    margin-bottom: 28px;
+  }
+  .hero-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .hero-tags span {
+    background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.28);
+    color: rgba(255,255,255,.92); font-size: 12px; font-weight: 600;
+    padding: 5px 13px; border-radius: 8px;
+  }
+
+  /* ─────────────────────────────────────────
+     STATS BAR  (3번)
+  ───────────────────────────────────────── */
+  .stats-outer {
+    display: flex; justify-content: center;
+    transform: translateY(-44px);
+    position: relative; z-index: 2;
+    padding: 0 40px;
+  }
+  .stats-bar {
+    background: var(--white);
+    width: 100%; max-width: 1160px;
+    border-radius: 20px; padding: 28px 48px;
+    display: flex; justify-content: space-around; align-items: center;
+    box-shadow: 0 8px 32px rgba(0,0,0,.1);
+    border: 1px solid var(--border);
+  }
+  .stat { text-align: center; }
+  .stat-num {
+    font-size: 30px; font-weight: 900; letter-spacing: -1px;
+    background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .stat-label { font-size: 12px; color: var(--text2); font-weight: 500; margin-top: 4px; }
+  .stat-divider { width: 1px; height: 40px; background: var(--border); }
+
+  /* ─────────────────────────────────────────
+     EXPERIENCE  (2번 - 화이트 타임라인)
+  ───────────────────────────────────────── */
+  .light-section { background: var(--bg); padding: 20px 0 70px; }
+  .sec-header { display: flex; align-items: baseline; gap: 10px; margin-bottom: 40px; }
+  .sec-header h2 { font-size: 26px; font-weight: 800; letter-spacing: -0.8px; }
+  .sec-header em { font-style: normal; color: var(--text2); font-weight: 400; font-size: 16px; }
+
+  .timeline { position: relative; padding-left: 32px; }
+  .timeline::before {
+    content: ''; position: absolute; left: 0; top: 8px; bottom: 8px;
+    width: 2px; background: var(--border);
+  }
+  .tl-item { position: relative; padding-bottom: 24px; }
+  .tl-item:last-child { padding-bottom: 0; }
+  .tl-dot {
+    position: absolute; left: -38px; top: 5px;
+    width: 14px; height: 14px; border-radius: 50%;
+    background: var(--grad); border: 3px solid var(--bg);
+    box-shadow: 0 0 0 2px var(--p1);
+  }
+  .tl-card {
+    background: var(--white); border: 1px solid var(--border);
+    border-radius: 16px; padding: 24px 28px;
+    box-shadow: 0 2px 12px rgba(0,0,0,.04);
+    transition: box-shadow .2s, transform .2s;
+  }
+  .tl-card:hover { box-shadow: 0 8px 24px rgba(108,71,255,.1); transform: translateX(4px); }
+  .tl-period {
+    font-size: 12px; font-weight: 700; letter-spacing: .5px;
+    background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    margin-bottom: 8px;
+  }
+  .tl-card h3 { font-size: 18px; font-weight: 800; margin-bottom: 4px; letter-spacing: -.3px; }
+  .tl-role { font-size: 13px; color: var(--p1); font-weight: 600; margin-bottom: 10px; }
+  .tl-desc { font-size: 14px; color: var(--text2); line-height: 1.7; }
+
+  /* ─────────────────────────────────────────
+     PROJECTS / FAQ / CONTACT  (1번 레이아웃 + 화이트)
+  ───────────────────────────────────────── */
+  .white-section { background: var(--bg); padding: 70px 0; }
+  .white-section + .white-section { padding-top: 0; }
+
+  .sec-label { font-size: 12px; font-weight: 600; letter-spacing: 3px; color: var(--p1); text-transform: uppercase; margin-bottom: 10px; }
+  .sec-title { font-size: clamp(22px, 3vw, 32px); font-weight: 800; letter-spacing: -1px; margin-bottom: 36px; color: var(--text); }
+  .sec-title span { color: var(--text2); font-weight: 400; font-size: 16px; }
+
+  /* Projects grid */
+  .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .project-card {
+    background: var(--white); border: 1px solid var(--border);
+    border-radius: 18px; overflow: hidden;
+    transition: transform .25s, border-color .25s, box-shadow .25s; cursor: pointer;
+  }
+  .project-card:hover { transform: translateY(-6px); border-color: rgba(108,71,255,.3); box-shadow: 0 20px 40px rgba(108,71,255,.1); }
+  .project-thumb {
+    height: 190px; display: flex; align-items: center; justify-content: center; font-size: 48px;
+  }
+  .project-card:nth-child(1) .project-thumb { background: linear-gradient(135deg,#ede9fe,#ddd6fe); }
+  .project-card:nth-child(2) .project-thumb { background: linear-gradient(135deg,#fce7f3,#fbcfe8); }
+  .project-card:nth-child(3) .project-thumb { background: linear-gradient(135deg,#dbeafe,#bfdbfe); }
+  .project-card:nth-child(4) .project-thumb { background: linear-gradient(135deg,#d1fae5,#a7f3d0); }
+  .project-info { padding: 22px; }
+  .project-info h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; color: var(--text); }
+  .project-info p { font-size: 13px; color: var(--text2); margin-bottom: 16px; line-height: 1.6; }
+  .project-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .project-tags span { background: var(--accent-light); color: var(--p1); font-size: 12px; padding: 4px 10px; border-radius: 6px; font-weight: 500; }
+
+  /* FAQ */
+  .faq-list { display: flex; flex-direction: column; gap: 12px; }
+  .faq-item { background: var(--white); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; }
+  .faq-q {
+    padding: 18px 24px; font-size: 15px; font-weight: 600;
+    color: var(--text); cursor: pointer;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .faq-q em { color: var(--p1); font-style: normal; margin-right: 8px; }
+  .faq-q .arrow { color: var(--text2); }
+  .faq-a { padding: 0 24px 18px; font-size: 14px; color: var(--text2); line-height: 1.8; }
+
+  /* Contact */
+  .contact-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .contact-card {
+    background: var(--white); border: 1px solid var(--border);
+    border-radius: 18px; padding: 28px 24px; text-align: center;
+    transition: border-color .2s, transform .2s, box-shadow .2s;
+  }
+  .contact-card:hover { border-color: rgba(108,71,255,.3); transform: translateY(-4px); box-shadow: 0 12px 28px rgba(108,71,255,.1); }
+  .contact-icon { font-size: 30px; margin-bottom: 14px; }
+  .contact-label { font-size: 11px; color: var(--text2); font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 6px; }
+  .contact-value { font-size: 15px; font-weight: 600; color: var(--text); }
+
+  /* ─────────────────────────────────────────
+     DIVIDER
+  ───────────────────────────────────────── */
+  .section-divider {
+    height: 1px; background: var(--border);
+    margin: 0 auto; max-width: 1160px; padding: 0 40px;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--white); border-top: 1px solid var(--border);
+    text-align: center; padding: 36px;
+    color: var(--text2); font-size: 13px;
+  }
+
+  /* ─────────────────────────────────────────
+     반응형
+  ───────────────────────────────────────── */
+  @media (max-width: 1024px) {
+    .wrap, .nav-inner, .stats-outer { padding: 0 24px; }
+    .stats-bar { padding: 24px 32px; }
+    .hero-inner { gap: 40px; }
+    .projects-grid { grid-template-columns: repeat(2, 1fr); }
+    .contact-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 768px) {
+    .wrap, .nav-inner, .stats-outer { padding: 0 16px; }
+    .nav-links { display: none; }
+    .hero { padding: 60px 0 90px; }
+    .hero-inner { flex-direction: column; text-align: center; gap: 28px; }
+    .hero-avatar { width: 100px; height: 100px; font-size: 40px; border-radius: 24px; }
+    .hero-text h1 { font-size: 32px; }
+    .hero-tags { justify-content: center; }
+    .stats-bar { flex-wrap: wrap; gap: 20px; padding: 20px 24px; }
+    .stat-divider { display: none; }
+    .stats-outer { transform: translateY(-32px); }
+    .projects-grid { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: repeat(2, 1fr); }
+    .timeline { padding-left: 20px; }
+    .tl-dot { left: -26px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo">DEV.PORTFOLIO</div>
+    <ul class="nav-links">
+      <li><a href="#about">ABOUT</a></li>
+      <li><a href="#experience">EXPERIENCE</a></li>
+      <li><a href="#project">PROJECT</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#contact">CONTACT</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<div class="hero" id="about">
+  <div class="wrap">
+    <div class="hero-inner">
+      <div class="hero-avatar">K</div>
+      <div class="hero-text">
+        <div class="hero-badge">✦ Backend Developer</div>
+        <h1>안녕하세요,<br>김두한입니다.</h1>
+        <p>Java / Spring Boot 기반의 백엔드 개발자.<br>DB 설계부터 API 개발까지 폭넓은 경험을 보유하고 있습니다.</p>
+        <div class="hero-quote">끊임없이 성장하는 개발자가 되겠습니다.</div>
+        <div class="hero-tags">
+          <span>#Java</span><span>#SpringBoot</span><span>#MySQL</span><span>#jQuery</span><span>#JSP</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── STATS ── -->
+<div class="stats-outer">
+  <div class="stats-bar">
+    <div class="stat"><div class="stat-num">3+</div><div class="stat-label">Years Exp.</div></div>
+    <div class="stat-divider"></div>
+    <div class="stat"><div class="stat-num">10+</div><div class="stat-label">Projects</div></div>
+    <div class="stat-divider"></div>
+    <div class="stat"><div class="stat-num">2</div><div class="stat-label">Companies</div></div>
+    <div class="stat-divider"></div>
+    <div class="stat"><div class="stat-num">5+</div><div class="stat-label">Tech Stack</div></div>
+  </div>
+</div>
+
+<!-- ── EXPERIENCE ── -->
+<div class="light-section" id="experience">
+  <div class="wrap">
+    <div class="sec-header">
+      <h2>경력</h2><em>EXPERIENCE</em>
+    </div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-period">2023.01 — 현재 · 재직중</div>
+          <h3>회사명</h3>
+          <div class="tl-role">백엔드 개발자 · 사원</div>
+          <div class="tl-desc">Spring Boot 기반 REST API 개발 및 MySQL DB 설계, 운영 시스템 유지보수</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-period">2021.03 — 2022.12 · 1년 10개월</div>
+          <h3>이전 회사명</h3>
+          <div class="tl-role">웹 개발자 · 인턴</div>
+          <div class="tl-desc">JSP/Servlet 기반 웹 개발 및 레거시 시스템 유지보수</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="height:1px; background:var(--border); max-width:1160px; margin:0 auto;"></div>
+
+<!-- ── PROJECTS ── -->
+<div class="white-section" id="project">
+  <div class="wrap">
+    <div class="sec-label">Works</div>
+    <div class="sec-title">프로젝트 <span>PROJECT</span></div>
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-thumb">🛠</div>
+        <div class="project-info">
+          <h3>프로젝트명 A</h3>
+          <p>Spring Boot 기반 REST API 서버 개발 프로젝트</p>
+          <div class="project-tags"><span>#SpringBoot</span><span>#MySQL</span><span>#Java</span></div>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-thumb">📊</div>
+        <div class="project-info">
+          <h3>프로젝트명 B</h3>
+          <p>데이터 분석 및 대시보드 웹 애플리케이션</p>
+          <div class="project-tags"><span>#jQuery</span><span>#JSP</span><span>#Oracle</span></div>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-thumb">🌐</div>
+        <div class="project-info">
+          <h3>포트폴리오 사이트</h3>
+          <p>개인 포트폴리오 웹사이트 개발</p>
+          <div class="project-tags"><span>#SpringBoot</span><span>#jQuery</span><span>#Cafe24</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="height:1px; background:var(--border); max-width:1160px; margin:0 auto;"></div>
+
+<!-- ── FAQ ── -->
+<div class="white-section" id="faq">
+  <div class="wrap">
+    <div class="sec-label">Q&A</div>
+    <div class="sec-title">FAQ <span>FAQ</span></div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q"><div><em>Q.</em>주요 기술 스택은 무엇인가요?</div><span class="arrow">▾</span></div>
+        <div class="faq-a">Java, Spring Boot, MyBatis, MySQL을 주로 사용합니다.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><div><em>Q.</em>협업 방식이 어떻게 되나요?</div><span class="arrow">▾</span></div>
+        <div class="faq-a">Git을 활용한 협업을 선호하며, 적극적인 코드 리뷰와 문서화를 중요시합니다.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><div><em>Q.</em>어떤 업무를 선호하시나요?</div><span class="arrow">▾</span></div>
+        <div class="faq-a">백엔드 API 설계 및 DB 최적화에 흥미를 갖고 있으며, 새로운 기술 도입에도 적극적입니다.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="height:1px; background:var(--border); max-width:1160px; margin:0 auto;"></div>
+
+<!-- ── CONTACT ── -->
+<div class="white-section" id="contact">
+  <div class="wrap">
+    <div class="sec-label">Contact</div>
+    <div class="sec-title">연락처 <span>CONTACT</span></div>
+    <div class="contact-grid">
+      <div class="contact-card"><div class="contact-icon">✉</div><div class="contact-label">Email</div><div class="contact-value">your@email.com</div></div>
+      <div class="contact-card"><div class="contact-icon">📱</div><div class="contact-label">Phone</div><div class="contact-value">010-0000-0000</div></div>
+      <div class="contact-card"><div class="contact-icon">💬</div><div class="contact-label">KakaoTalk</div><div class="contact-value">kakao_id</div></div>
+      <div class="contact-card"><div class="contact-icon">🔗</div><div class="contact-label">오픈채팅</div><div class="contact-value">링크 바로가기</div></div>
+    </div>
+  </div>
+</div>
+
+<footer>© 2025 DEV.PORTFOLIO. All Rights Reserved.</footer>
+
+</body>
+</html>

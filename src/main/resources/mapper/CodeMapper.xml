@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.landingDoobo.dao.CodeDao">
+
+    <select id="selectCodeList" resultType="Map">
+        SELECT
+            C_BIG_CD,
+            C_SMALL_CD,
+            S_VALUE,
+            CASE C_BIG_CD
+                WHEN '10' THEN '메인배너'
+                WHEN '20' THEN '개발자정보'
+                WHEN '30' THEN '연락처'
+                ELSE '기타'
+            END AS BIG_NM,
+            CASE CONCAT(C_BIG_CD, C_SMALL_CD)
+                WHEN '10001' THEN '배너이미지경로'
+                WHEN '10002' THEN '배너텍스트'
+                WHEN '20001' THEN '개발자이름'
+                WHEN '20002' THEN '직급'
+                WHEN '20003' THEN '프로필이미지경로'
+                WHEN '20004' THEN '소개텍스트'
+                WHEN '20005' THEN '핵심메시지'
+                WHEN '20006' THEN '기술태그(#구분)'
+                WHEN '30001' THEN '이메일'
+                WHEN '30002' THEN '전화번호'
+                WHEN '30003' THEN '카카오톡ID'
+                ELSE C_SMALL_CD
+            END AS SMALL_NM
+        FROM T_LD_CODE
+        ORDER BY C_BIG_CD, C_SMALL_CD
+    </select>
+
+    <select id="selectByBigCd" parameterType="String" resultType="Map">
+        SELECT C_BIG_CD, C_SMALL_CD, S_VALUE
+        FROM T_LD_CODE
+        WHERE C_BIG_CD = #{bigCd}
+        ORDER BY C_SMALL_CD
+    </select>
+
+    <update id="updateCode" parameterType="Map">
+        UPDATE T_LD_CODE
+        SET S_VALUE = #{sValue}
+        WHERE C_BIG_CD  = #{cBigCd}
+          AND C_SMALL_CD = #{cSmallCd}
+    </update>
+
+</mapper>

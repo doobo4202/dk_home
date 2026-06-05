@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.landingDoobo.dao.MainDao">
+
+    <select id="selectOneMainBanner" resultType="Map">
+        SELECT
+            MAX(CASE WHEN C_SMALL_CD = '001' THEN S_VALUE END) AS MAIN_IMG,
+            MAX(CASE WHEN C_SMALL_CD = '002' THEN S_VALUE END) AS MAIN_TEXT
+        FROM T_LD_CODE
+        WHERE C_BIG_CD = '10'
+        GROUP BY C_BIG_CD
+    </select>
+
+    <select id="selectOneDevInfo" resultType="Map">
+        SELECT
+            MAX(CASE WHEN C_SMALL_CD = '001' THEN S_VALUE END) AS DEV_NM,
+            MAX(CASE WHEN C_SMALL_CD = '002' THEN S_VALUE END) AS DEV_PART,
+            MAX(CASE WHEN C_SMALL_CD = '003' THEN S_VALUE END) AS DEV_IMG,
+            MAX(CASE WHEN C_SMALL_CD = '004' THEN S_VALUE END) AS DEV_TEXT,
+            MAX(CASE WHEN C_SMALL_CD = '005' THEN S_VALUE END) AS DEV_MSG,
+            MAX(CASE WHEN C_SMALL_CD = '006' THEN S_VALUE END) AS DEV_TAG
+        FROM T_LD_CODE
+        WHERE C_BIG_CD = '20'
+        GROUP BY C_BIG_CD
+    </select>
+
+    <select id="selectListExp" resultType="Map">
+        SELECT
+            S_COMPANY_NM    COMPANY_NM,
+            CONCAT(SUBSTR(C_START_DY,1,4), '.', SUBSTR(C_START_DY,5,2)) START_DY,
+            CASE WHEN C_ING_YN = 'Y' THEN '재직중'
+                 ELSE CONCAT(SUBSTR(C_END_DY,1,4), '.', SUBSTR(C_END_DY,5,2))
+            END END_DY,
+            S_GRADE_NM      GRADE_NM,
+            S_SMALL_CONT    SMALL_CONT,
+            S_EXP_DETAIL    EXP_DETAIL
+        FROM T_LD_EXPERIENCE_INFO
+        WHERE C_USE_YN = 'Y'
+        ORDER BY C_ING_YN DESC, C_START_DY DESC
+    </select>
+
+    <select id="selectListProject" resultType="Map">
+        SELECT
+            C_PROJECT_SEQ PROJECT_SEQ,
+            S_PROJECT_NM  PROJECT_NM,
+            S_TAG         PROJECT_TAG,
+            IFNULL(S_SUM_IMG, '/images/landingDoobo/project/img_ing.png') SUM_IMG,
+            DATE_FORMAT(STR_TO_DATE(C_START_DY, '%Y%m%d'), '%Y.%m') START_DY,
+            DATE_FORMAT(STR_TO_DATE(C_END_DY,   '%Y%m%d'), '%Y.%m') END_DY
+        FROM T_LD_PROJECT_INFO
+        WHERE C_USE_YN = 'Y'
+        ORDER BY C_PROJECT_SEQ DESC
+    </select>
+
+    <select id="selectListFaq" resultType="Map">
+        SELECT
+            S_FAQ_QUESTION FAQ_QUESTION,
+            S_FAQ_ANSWER   FAQ_ANSWER
+        FROM T_LD_FAQ_LIST
+        WHERE C_USE_YN = 'Y'
+        ORDER BY C_FAQ_SEQ
+    </select>
+
+    <select id="selectOneContectInfo" resultType="Map">
+        SELECT
+            MAX(CASE WHEN C_SMALL_CD = '001' THEN S_VALUE END) AS CONTACT_MAIL,
+            MAX(CASE WHEN C_SMALL_CD = '002' THEN S_VALUE END) AS CONTACT_CALL,
+            MAX(CASE WHEN C_SMALL_CD = '003' THEN S_VALUE END) AS CONTACT_TALK
+        FROM T_LD_CODE
+        WHERE C_BIG_CD = '30'
+        GROUP BY C_BIG_CD
+    </select>
+
+    <select id="selectOneProjectDetail" parameterType="Map" resultType="Map">
+        SELECT
+            C_PROJECT_SEQ PROJECT_SEQ,
+            S_PROJECT_NM  PROJECT_NM,
+            S_TAG         PROJECT_TAG,
+            DATE_FORMAT(STR_TO_DATE(C_START_DY, '%Y%m%d'), '%Y.%m') START_DY,
+            DATE_FORMAT(STR_TO_DATE(C_END_DY,   '%Y%m%d'), '%Y.%m') END_DY,
+            S_DETAIL_IMG  DETAIL_IMG,
+            S_DETAIL_CONT DETAIL_CONT
+        FROM T_LD_PROJECT_INFO
+        WHERE C_PROJECT_SEQ = #{projectSeq}
+          AND C_USE_YN = 'Y'
+    </select>
+
+</mapper>

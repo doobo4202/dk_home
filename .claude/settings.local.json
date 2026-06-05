@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Head *)",
+      "WebFetch(domain:doobo4202.cafe24.com)"
+    ]
+  },
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "powershell.exe -Command \"[System.Media.SystemSounds]::Exclamation.Play(); Start-Sleep -Milliseconds 600\""
+          }
+        ]
+      }
+    ]
+  }
+}

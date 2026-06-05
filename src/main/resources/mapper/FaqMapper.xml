@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.landingDoobo.dao.FaqDao">
+
+    <select id="selectFaqList" resultType="Map">
+        SELECT
+            C_FAQ_SEQ      SEQ,
+            S_FAQ_QUESTION FAQ_QUESTION,
+            S_FAQ_ANSWER   FAQ_ANSWER,
+            C_USE_YN       USE_YN
+        FROM T_LD_FAQ_LIST
+        ORDER BY C_FAQ_SEQ
+    </select>
+
+    <select id="selectFaqOne" parameterType="Map" resultType="Map">
+        SELECT
+            C_FAQ_SEQ      SEQ,
+            S_FAQ_QUESTION FAQ_QUESTION,
+            S_FAQ_ANSWER   FAQ_ANSWER,
+            C_USE_YN       USE_YN
+        FROM T_LD_FAQ_LIST
+        WHERE C_FAQ_SEQ = #{seq}
+    </select>
+
+    <insert id="insertFaq" parameterType="Map">
+        INSERT INTO T_LD_FAQ_LIST (C_FAQ_SEQ, S_FAQ_QUESTION, S_FAQ_ANSWER, C_USE_YN, S_REG_ID, D_REG_DT)
+        SELECT IFNULL(MAX(C_FAQ_SEQ), 0) + 1, #{faqQuestion}, #{faqAnswer}, 'Y', 'admin', NOW()
+        FROM T_LD_FAQ_LIST
+    </insert>
+
+    <update id="updateFaq" parameterType="Map">
+        UPDATE T_LD_FAQ_LIST
+        SET
+            S_FAQ_QUESTION = #{faqQuestion},
+            S_FAQ_ANSWER   = #{faqAnswer}
+        WHERE C_FAQ_SEQ = #{seq}
+    </update>
+
+    <update id="deleteFaq" parameterType="Map">
+        UPDATE T_LD_FAQ_LIST SET C_USE_YN = 'N' WHERE C_FAQ_SEQ = #{seq}
+    </update>
+
+    <update id="restoreFaq" parameterType="Map">
+        UPDATE T_LD_FAQ_LIST SET C_USE_YN = 'Y' WHERE C_FAQ_SEQ = #{seq}
+    </update>
+
+</mapper>

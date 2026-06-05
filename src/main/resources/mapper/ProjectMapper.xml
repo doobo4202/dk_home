@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.landingDoobo.dao.ProjectDao">
+
+    <select id="selectProjectList" resultType="Map">
+        SELECT
+            C_PROJECT_SEQ SEQ,
+            S_PROJECT_NM  PROJECT_NM,
+            S_TAG         TAG,
+            S_SUM_IMG     SUM_IMG,
+            C_START_DY    START_DY,
+            C_END_DY      END_DY,
+            S_DETAIL_IMG  DETAIL_IMG,
+            S_DETAIL_CONT DETAIL_CONT,
+            C_USE_YN      USE_YN
+        FROM T_LD_PROJECT_INFO
+        ORDER BY C_PROJECT_SEQ DESC
+    </select>
+
+    <select id="selectProjectOne" parameterType="Map" resultType="Map">
+        SELECT
+            C_PROJECT_SEQ SEQ,
+            S_PROJECT_NM  PROJECT_NM,
+            S_TAG         TAG,
+            S_SUM_IMG     SUM_IMG,
+            C_START_DY    START_DY,
+            C_END_DY      END_DY,
+            S_DETAIL_IMG  DETAIL_IMG,
+            S_DETAIL_CONT DETAIL_CONT,
+            C_USE_YN      USE_YN
+        FROM T_LD_PROJECT_INFO
+        WHERE C_PROJECT_SEQ = #{seq}
+    </select>
+
+    <insert id="insertProject" parameterType="Map">
+        INSERT INTO T_LD_PROJECT_INFO
+            (C_PROJECT_SEQ, S_PROJECT_NM, S_TAG, S_SUM_IMG, C_START_DY, C_END_DY, S_DETAIL_IMG, S_DETAIL_CONT, C_USE_YN, S_REG_ID, D_REG_DT)
+        SELECT
+            IFNULL(MAX(C_PROJECT_SEQ), 0) + 1,
+            #{projectNm}, #{tag}, #{sumImg}, #{startDy}, #{endDy}, #{detailImg}, #{detailCont}, 'Y', 'admin', NOW()
+        FROM T_LD_PROJECT_INFO
+    </insert>
+
+    <update id="updateProject" parameterType="Map">
+        UPDATE T_LD_PROJECT_INFO
+        SET
+            S_PROJECT_NM  = #{projectNm},
+            S_TAG         = #{tag},
+            S_SUM_IMG     = #{sumImg},
+            C_START_DY    = #{startDy},
+            C_END_DY      = #{endDy},
+            S_DETAIL_IMG  = #{detailImg},
+            S_DETAIL_CONT = #{detailCont}
+        WHERE C_PROJECT_SEQ = #{seq}
+    </update>
+
+    <update id="deleteProject" parameterType="Map">
+        UPDATE T_LD_PROJECT_INFO SET C_USE_YN = 'N' WHERE C_PROJECT_SEQ = #{seq}
+    </update>
+
+    <update id="restoreProject" parameterType="Map">
+        UPDATE T_LD_PROJECT_INFO SET C_USE_YN = 'Y' WHERE C_PROJECT_SEQ = #{seq}
+    </update>
+
+</mapper>

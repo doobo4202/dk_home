@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>시안 2 - 미니멀 화이트</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #ffffff;
+    --bg2: #f7f7f9;
+    --border: #e8e8ed;
+    --text: #111118;
+    --text2: #6b6b80;
+    --accent: #5b5bd6;
+    --accent-light: #ededfd;
+  }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; line-height: 1.6; }
+
+  /* NAV */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(255,255,255,0.9); backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 10%; height: 60px;
+  }
+  .nav-logo { font-size: 15px; font-weight: 800; letter-spacing: -0.5px; color: var(--text); }
+  .nav-links { display: flex; gap: 28px; list-style: none; }
+  .nav-links a { color: var(--text2); text-decoration: none; font-size: 13px; font-weight: 500; transition: color .2s; }
+  .nav-links a:hover { color: var(--text); }
+
+  /* HERO */
+  .hero {
+    padding: 100px 10% 80px;
+    display: flex; align-items: center; gap: 80px;
+    border-bottom: 1px solid var(--border);
+  }
+  .hero-left { flex: 1; }
+  .hero-right { flex-shrink: 0; }
+  .hero-right .avatar {
+    width: 200px; height: 200px; border-radius: 24px;
+    background: linear-gradient(135deg, #5b5bd6 0%, #9b8df7 100%);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 72px; font-weight: 900; color: rgba(255,255,255,.9);
+    box-shadow: 0 24px 48px rgba(91,91,214,.25);
+  }
+  .hero-eyebrow { font-size: 13px; font-weight: 600; letter-spacing: 2px; color: var(--accent); text-transform: uppercase; margin-bottom: 16px; }
+  .hero h1 { font-size: clamp(36px, 5vw, 60px); font-weight: 900; letter-spacing: -2px; line-height: 1.1; margin-bottom: 20px; }
+  .hero h1 em { font-style: normal; color: var(--accent); }
+  .hero p { font-size: 17px; color: var(--text2); max-width: 480px; line-height: 1.8; margin-bottom: 32px; }
+  .hero-quote { border-left: 3px solid var(--accent); padding-left: 16px; font-size: 16px; font-style: italic; color: var(--text2); margin-bottom: 36px; }
+  .skill-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+  .skill-pills span {
+    background: var(--accent-light); color: var(--accent);
+    font-size: 13px; font-weight: 600; padding: 6px 14px; border-radius: 8px;
+  }
+
+  /* SECTION */
+  section { padding: 80px 10%; border-bottom: 1px solid var(--border); }
+  .sec-header { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 40px; }
+  .sec-header h2 { font-size: 28px; font-weight: 800; letter-spacing: -1px; }
+  .sec-header h2 em { font-style: normal; color: var(--text2); font-weight: 400; font-size: 18px; margin-left: 8px; }
+  .sec-header a { font-size: 13px; color: var(--accent); text-decoration: none; font-weight: 600; }
+
+  /* EXPERIENCE - Timeline */
+  .timeline { position: relative; padding-left: 28px; }
+  .timeline::before { content: ''; position: absolute; left: 0; top: 6px; bottom: 6px; width: 2px; background: var(--border); }
+  .tl-item { position: relative; padding-bottom: 40px; }
+  .tl-item:last-child { padding-bottom: 0; }
+  .tl-dot { position: absolute; left: -34px; top: 4px; width: 14px; height: 14px; border-radius: 50%; background: var(--accent); border: 3px solid var(--bg); box-shadow: 0 0 0 2px var(--accent); }
+  .tl-period { font-size: 12px; color: var(--accent); font-weight: 600; letter-spacing: .5px; margin-bottom: 6px; }
+  .tl-item h3 { font-size: 18px; font-weight: 700; margin-bottom: 4px; }
+  .tl-role { font-size: 14px; color: var(--text2); font-weight: 500; margin-bottom: 8px; }
+  .tl-desc { font-size: 14px; color: var(--text2); line-height: 1.7; }
+
+  /* PROJECTS - List style */
+  .project-list { display: flex; flex-direction: column; gap: 0; }
+  .project-row {
+    display: flex; align-items: center; gap: 28px; padding: 24px 0;
+    border-bottom: 1px solid var(--border); cursor: pointer; transition: all .2s;
+  }
+  .project-row:first-child { border-top: 1px solid var(--border); }
+  .project-row:hover .project-row-title { color: var(--accent); }
+  .project-num { font-size: 13px; color: var(--text2); font-weight: 600; min-width: 32px; }
+  .project-row-thumb { width: 64px; height: 64px; border-radius: 12px; background: var(--bg2); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 24px; flex-shrink: 0; }
+  .project-row-info { flex: 1; }
+  .project-row-title { font-size: 16px; font-weight: 700; margin-bottom: 4px; transition: color .2s; }
+  .project-row-desc { font-size: 13px; color: var(--text2); }
+  .project-row-tags { display: flex; gap: 6px; margin-left: auto; flex-shrink: 0; }
+  .project-row-tags span { background: var(--bg2); color: var(--text2); font-size: 12px; padding: 3px 10px; border-radius: 6px; border: 1px solid var(--border); }
+  .project-arrow { color: var(--text2); font-size: 18px; }
+
+  /* FAQ */
+  .faq-list { max-width: 720px; }
+  .faq-row { padding: 20px 0; border-bottom: 1px solid var(--border); }
+  .faq-row:first-child { border-top: 1px solid var(--border); }
+  .faq-q { font-size: 15px; font-weight: 600; margin-bottom: 8px; display: flex; gap: 8px; }
+  .faq-q em { color: var(--accent); font-style: normal; }
+  .faq-a { font-size: 14px; color: var(--text2); line-height: 1.8; padding-left: 20px; }
+
+  /* CONTACT */
+  .contact-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; max-width: 600px; }
+  .contact-item {
+    display: flex; align-items: center; gap: 16px;
+    background: var(--bg2); border: 1px solid var(--border); border-radius: 14px;
+    padding: 20px; transition: border-color .2s;
+  }
+  .contact-item:hover { border-color: var(--accent); }
+  .contact-ico { width: 44px; height: 44px; border-radius: 12px; background: var(--accent-light); display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
+  .contact-info .label { font-size: 11px; color: var(--text2); font-weight: 600; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 3px; }
+  .contact-info .value { font-size: 14px; font-weight: 600; }
+
+  footer { padding: 40px 10%; color: var(--text2); font-size: 13px; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">KIM DOOHAN</div>
+  <ul class="nav-links">
+    <li><a href="#">ABOUT</a></li>
+    <li><a href="#">EXPERIENCE</a></li>
+    <li><a href="#">PROJECT</a></li>
+    <li><a href="#">FAQ</a></li>
+    <li><a href="#">CONTACT</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Backend Developer</div>
+    <h1>안녕하세요,<br><em>김두한</em>입니다.</h1>
+    <p>Java / Spring Boot 기반의 백엔드 개발자.<br>DB 설계부터 API 개발까지 폭넓은 경험을 보유하고 있습니다.</p>
+    <div class="hero-quote">끊임없이 성장하는 개발자가 되겠습니다.</div>
+    <div class="skill-pills">
+      <span>#Java</span><span>#SpringBoot</span><span>#MySQL</span><span>#jQuery</span><span>#JSP</span>
+    </div>
+  </div>
+  <div class="hero-right"><div class="avatar">K</div></div>
+</div>
+
+<!-- EXPERIENCE -->
+<section>
+  <div class="sec-header">
+    <h2>경력 <em>EXPERIENCE</em></h2>
+  </div>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-period">2023.01 — 현재</div>
+      <h3>회사명</h3>
+      <div class="tl-role">백엔드 개발자 · 사원</div>
+      <div class="tl-desc">Spring Boot 기반 REST API 개발 및 MySQL DB 설계, 운영 시스템 유지보수</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-period">2021.03 — 2022.12</div>
+      <h3>이전 회사명</h3>
+      <div class="tl-role">웹 개발자 · 인턴</div>
+      <div class="tl-desc">JSP/Servlet 기반 웹 개발 및 레거시 시스템 유지보수</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section>
+  <div class="sec-header">
+    <h2>프로젝트 <em>PROJECT</em></h2>
+  </div>
+  <div class="project-list">
+    <div class="project-row">
+      <div class="project-num">01</div>
+      <div class="project-row-thumb">🛠</div>
+      <div class="project-row-info">
+        <div class="project-row-title">프로젝트명 A</div>
+        <div class="project-row-desc">Spring Boot 기반 REST API 서버 개발</div>
+      </div>
+      <div class="project-row-tags"><span>#SpringBoot</span><span>#MySQL</span></div>
+      <div class="project-arrow">→</div>
+    </div>
+    <div class="project-row">
+      <div class="project-num">02</div>
+      <div class="project-row-thumb">📊</div>
+      <div class="project-row-info">
+        <div class="project-row-title">프로젝트명 B</div>
+        <div class="project-row-desc">데이터 분석 대시보드 웹 애플리케이션</div>
+      </div>
+      <div class="project-row-tags"><span>#jQuery</span><span>#JSP</span></div>
+      <div class="project-arrow">→</div>
+    </div>
+    <div class="project-row">
+      <div class="project-num">03</div>
+      <div class="project-row-thumb">🌐</div>
+      <div class="project-row-info">
+        <div class="project-row-title">포트폴리오 사이트</div>
+        <div class="project-row-desc">개인 포트폴리오 웹사이트</div>
+      </div>
+      <div class="project-row-tags"><span>#SpringBoot</span><span>#Cafe24</span></div>
+      <div class="project-arrow">→</div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section>
+  <div class="sec-header"><h2>FAQ <em>FAQ</em></h2></div>
+  <div class="faq-list">
+    <div class="faq-row">
+      <div class="faq-q"><em>Q.</em> 주요 기술 스택은 무엇인가요?</div>
+      <div class="faq-a">Java, Spring Boot, MyBatis, MySQL을 주로 사용합니다.</div>
+    </div>
+    <div class="faq-row">
+      <div class="faq-q"><em>Q.</em> 협업 방식이 어떻게 되나요?</div>
+      <div class="faq-a">Git을 활용한 협업을 선호하며, 적극적인 코드 리뷰와 문서화를 중요시합니다.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section>
+  <div class="sec-header"><h2>연락처 <em>CONTACT</em></h2></div>
+  <div class="contact-list">
+    <div class="contact-item"><div class="contact-ico">✉</div><div class="contact-info"><div class="label">Email</div><div class="value">your@email.com</div></div></div>
+    <div class="contact-item"><div class="contact-ico">📱</div><div class="contact-info"><div class="label">Phone</div><div class="value">010-0000-0000</div></div></div>
+    <div class="contact-item"><div class="contact-ico">💬</div><div class="contact-info"><div class="label">KakaoTalk</div><div class="value">kakao_id</div></div></div>
+    <div class="contact-item"><div class="contact-ico">🔗</div><div class="contact-info"><div class="label">오픈채팅</div><div class="value">링크 바로가기</div></div></div>
+  </div>
+</section>
+
+<footer>© 2025 KIM DOOHAN. All Rights Reserved.</footer>
+</body>
+</html>

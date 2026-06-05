@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>시안 1 - 다크 모던</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #080810;
+    --bg2: #0f0f1a;
+    --bg3: #16162a;
+    --border: rgba(255,255,255,0.08);
+    --text: #e8e8f0;
+    --text2: #8888aa;
+    --accent: #7c6ff7;
+    --accent2: #4f8ef7;
+    --grad: linear-gradient(135deg, #7c6ff7, #4f8ef7);
+  }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; line-height: 1.6; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    backdrop-filter: blur(20px); background: rgba(8,8,16,0.8);
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 10%;
+    height: 64px;
+  }
+  .nav-logo { font-size: 20px; font-weight: 800; background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a { color: var(--text2); text-decoration: none; font-size: 14px; font-weight: 500; letter-spacing: .5px; transition: color .2s; }
+  .nav-links a:hover { color: #fff; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh; display: flex; align-items: center; justify-content: center;
+    text-align: center; padding: 80px 20px 60px;
+    background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(124,111,247,0.15) 0%, transparent 70%);
+  }
+  .hero-badge {
+    display: inline-block; background: rgba(124,111,247,0.15); border: 1px solid rgba(124,111,247,0.3);
+    color: #a99ffd; font-size: 13px; font-weight: 500; padding: 6px 16px; border-radius: 999px; margin-bottom: 28px; letter-spacing: .5px;
+  }
+  .hero h1 { font-size: clamp(42px, 7vw, 80px); font-weight: 900; line-height: 1.1; letter-spacing: -2px; margin-bottom: 20px; }
+  .hero h1 span { background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .hero p { font-size: 18px; color: var(--text2); max-width: 540px; margin: 0 auto 40px; line-height: 1.8; }
+  .hero-tags { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 48px; }
+  .hero-tags span {
+    background: var(--bg3); border: 1px solid var(--border);
+    color: var(--text2); font-size: 13px; padding: 6px 14px; border-radius: 8px; font-weight: 500;
+  }
+  .avatar {
+    width: 96px; height: 96px; border-radius: 50%; margin: 0 auto 28px;
+    background: var(--grad); display: flex; align-items: center; justify-content: center;
+    font-size: 36px; font-weight: 900; color: #fff; box-shadow: 0 0 40px rgba(124,111,247,.4);
+  }
+
+  /* SECTION */
+  section { padding: 100px 10%; }
+  .section-label { font-size: 12px; font-weight: 600; letter-spacing: 3px; color: var(--accent); text-transform: uppercase; margin-bottom: 12px; }
+  .section-title { font-size: clamp(28px, 4vw, 40px); font-weight: 800; letter-spacing: -1px; margin-bottom: 48px; }
+  .section-title span { color: var(--text2); font-weight: 400; }
+
+  /* EXPERIENCE */
+  .exp-list { display: flex; flex-direction: column; gap: 1px; background: var(--border); border-radius: 16px; overflow: hidden; }
+  .exp-item {
+    background: var(--bg2); padding: 28px 32px;
+    display: flex; gap: 32px; align-items: flex-start;
+    transition: background .2s;
+  }
+  .exp-item:hover { background: var(--bg3); }
+  .exp-period { min-width: 130px; font-size: 13px; color: var(--accent); font-weight: 600; padding-top: 3px; }
+  .exp-body h3 { font-size: 18px; font-weight: 700; margin-bottom: 4px; }
+  .exp-body .role { font-size: 14px; color: var(--accent); margin-bottom: 8px; font-weight: 500; }
+  .exp-body p { font-size: 14px; color: var(--text2); line-height: 1.7; }
+
+  /* PROJECTS */
+  .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+  .project-card {
+    background: var(--bg2); border: 1px solid var(--border); border-radius: 16px;
+    overflow: hidden; transition: transform .25s, border-color .25s, box-shadow .25s; cursor: pointer;
+  }
+  .project-card:hover { transform: translateY(-6px); border-color: rgba(124,111,247,.4); box-shadow: 0 20px 40px rgba(0,0,0,.4); }
+  .project-thumb {
+    height: 180px; background: var(--bg3);
+    display: flex; align-items: center; justify-content: center; font-size: 40px;
+    position: relative; overflow: hidden;
+  }
+  .project-thumb::before { content: ''; position: absolute; inset: 0; background: var(--grad); opacity: .12; }
+  .project-info { padding: 20px; }
+  .project-info h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+  .project-info p { font-size: 13px; color: var(--text2); margin-bottom: 14px; line-height: 1.6; }
+  .project-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .project-tags span { background: rgba(124,111,247,.15); color: #a99ffd; font-size: 12px; padding: 3px 10px; border-radius: 6px; font-weight: 500; }
+
+  /* FAQ */
+  .faq-list { display: flex; flex-direction: column; gap: 12px; max-width: 760px; }
+  .faq-item { background: var(--bg2); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+  .faq-q { padding: 18px 24px; font-size: 15px; font-weight: 600; color: var(--text); cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+  .faq-q span { color: var(--accent); margin-right: 8px; }
+  .faq-a { padding: 0 24px 18px; font-size: 14px; color: var(--text2); line-height: 1.8; }
+
+  /* CONTACT */
+  .contact-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; }
+  .contact-card {
+    background: var(--bg2); border: 1px solid var(--border); border-radius: 16px;
+    padding: 28px 24px; text-align: center; transition: border-color .2s, transform .2s;
+  }
+  .contact-card:hover { border-color: rgba(124,111,247,.4); transform: translateY(-3px); }
+  .contact-icon { font-size: 28px; margin-bottom: 12px; }
+  .contact-label { font-size: 12px; color: var(--text2); font-weight: 600; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 6px; }
+  .contact-value { font-size: 15px; font-weight: 600; color: var(--text); }
+
+  /* FOOTER */
+  footer { text-align: center; padding: 40px; border-top: 1px solid var(--border); color: var(--text2); font-size: 13px; }
+
+  .divider { height: 1px; background: var(--border); margin: 0 10%; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">DEV.PORTFOLIO</div>
+  <ul class="nav-links">
+    <li><a href="#">ABOUT</a></li>
+    <li><a href="#">EXPERIENCE</a></li>
+    <li><a href="#">PROJECT</a></li>
+    <li><a href="#">FAQ</a></li>
+    <li><a href="#">CONTACT</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div>
+    <div class="avatar">K</div>
+    <div class="hero-badge">✦ Backend Developer</div>
+    <h1>안녕하세요,<br><span>김두한</span>입니다.</h1>
+    <p>Java / Spring Boot 기반의 백엔드 개발자.<br>DB 설계부터 API 개발까지 폭넓은 경험을 보유하고 있습니다.</p>
+    <div class="hero-tags">
+      <span>#Java</span><span>#SpringBoot</span><span>#MySQL</span><span>#jQuery</span><span>#JSP</span>
+    </div>
+    <p style="color:var(--text2); font-style:italic; font-size:18px;">"끊임없이 성장하는 개발자가 되겠습니다."</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- EXPERIENCE -->
+<section>
+  <div class="section-label">Career</div>
+  <div class="section-title">경력 <span>EXPERIENCE</span></div>
+  <div class="exp-list">
+    <div class="exp-item">
+      <div class="exp-period">2023.01 ~ 재직중</div>
+      <div class="exp-body">
+        <h3>회사명</h3>
+        <div class="role">백엔드 개발자 / 사원</div>
+        <p>Spring Boot 기반 API 개발 및 MySQL DB 설계</p>
+      </div>
+    </div>
+    <div class="exp-item">
+      <div class="exp-period">2021.03 ~ 2022.12</div>
+      <div class="exp-body">
+        <h3>이전 회사명</h3>
+        <div class="role">웹 개발자 / 인턴</div>
+        <p>JSP/Servlet 기반 웹 개발 및 유지보수</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PROJECTS -->
+<section>
+  <div class="section-label">Works</div>
+  <div class="section-title">프로젝트 <span>PROJECT</span></div>
+  <div class="projects-grid">
+    <div class="project-card">
+      <div class="project-thumb">🛠</div>
+      <div class="project-info">
+        <h3>프로젝트명 A</h3>
+        <p>Spring Boot 기반 REST API 서버 개발 프로젝트</p>
+        <div class="project-tags"><span>#SpringBoot</span><span>#MySQL</span><span>#Java</span></div>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="project-thumb">📊</div>
+      <div class="project-info">
+        <h3>프로젝트명 B</h3>
+        <p>데이터 분석 및 대시보드 웹 애플리케이션</p>
+        <div class="project-tags"><span>#jQuery</span><span>#JSP</span><span>#Oracle</span></div>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="project-thumb">🌐</div>
+      <div class="project-info">
+        <h3>포트폴리오 사이트</h3>
+        <p>개인 포트폴리오 웹사이트 개발</p>
+        <div class="project-tags"><span>#SpringBoot</span><span>#jQuery</span><span>#Cafe24</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- FAQ -->
+<section>
+  <div class="section-label">Q&A</div>
+  <div class="section-title">FAQ <span>FAQ</span></div>
+  <div class="faq-list">
+    <div class="faq-item">
+      <div class="faq-q"><div><span>Q.</span> 주요 기술 스택은 무엇인가요?</div><span>▾</span></div>
+      <div class="faq-a">Java, Spring Boot, MyBatis, MySQL을 주로 사용합니다.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q"><div><span>Q.</span> 협업 방식이 어떻게 되나요?</div><span>▾</span></div>
+      <div class="faq-a">Git을 활용한 협업을 선호하며, 적극적인 코드 리뷰와 문서화를 중요시합니다.</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CONTACT -->
+<section>
+  <div class="section-label">Contact</div>
+  <div class="section-title">연락처 <span>CONTACT</span></div>
+  <div class="contact-grid">
+    <div class="contact-card"><div class="contact-icon">✉</div><div class="contact-label">Email</div><div class="contact-value">your@email.com</div></div>
+    <div class="contact-card"><div class="contact-icon">📱</div><div class="contact-label">Phone</div><div class="contact-value">010-0000-0000</div></div>
+    <div class="contact-card"><div class="contact-icon">💬</div><div class="contact-label">KakaoTalk</div><div class="contact-value">kakao_id</div></div>
+    <div class="contact-card"><div class="contact-icon">🔗</div><div class="contact-label">오픈채팅</div><div class="contact-value">링크 바로가기</div></div>
+  </div>
+</section>
+
+<footer>© 2025 DEV.PORTFOLIO. All Rights Reserved.</footer>
+</body>
+</html>

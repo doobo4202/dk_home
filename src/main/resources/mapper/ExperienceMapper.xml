@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.landingDoobo.dao.ExperienceDao">
+
+    <select id="selectExpList" resultType="Map">
+        SELECT
+            C_PROJECT_SEQ SEQ,
+            S_COMPANY_NM  COMPANY_NM,
+            C_START_DY    START_DY,
+            C_END_DY      END_DY,
+            C_ING_YN      ING_YN,
+            S_GRADE_NM    GRADE_NM,
+            S_SMALL_CONT  SMALL_CONT,
+            S_EXP_DETAIL  EXP_DETAIL,
+            C_USE_YN      USE_YN
+        FROM T_LD_EXPERIENCE_INFO
+        ORDER BY C_ING_YN DESC, C_START_DY DESC
+    </select>
+
+    <select id="selectExpOne" parameterType="Map" resultType="Map">
+        SELECT
+            C_PROJECT_SEQ SEQ,
+            S_COMPANY_NM  COMPANY_NM,
+            C_START_DY    START_DY,
+            C_END_DY      END_DY,
+            C_ING_YN      ING_YN,
+            S_GRADE_NM    GRADE_NM,
+            S_SMALL_CONT  SMALL_CONT,
+            S_EXP_DETAIL  EXP_DETAIL,
+            C_USE_YN      USE_YN
+        FROM T_LD_EXPERIENCE_INFO
+        WHERE C_PROJECT_SEQ = #{seq}
+    </select>
+
+    <insert id="insertExp" parameterType="Map">
+        INSERT INTO T_LD_EXPERIENCE_INFO
+            (C_PROJECT_SEQ, S_COMPANY_NM, C_START_DY, C_END_DY, C_ING_YN, S_GRADE_NM, S_SMALL_CONT, S_EXP_DETAIL, C_USE_YN, S_REG_ID, D_REG_DT)
+        SELECT
+            IFNULL(MAX(C_PROJECT_SEQ), 0) + 1,
+            #{companyNm}, #{startDy}, #{endDy}, #{ingYn}, #{gradeNm}, #{smallCont}, #{expDetail}, 'Y', 'admin', NOW()
+        FROM T_LD_EXPERIENCE_INFO
+    </insert>
+
+    <update id="updateExp" parameterType="Map">
+        UPDATE T_LD_EXPERIENCE_INFO
+        SET
+            S_COMPANY_NM = #{companyNm},
+            C_START_DY   = #{startDy},
+            C_END_DY     = #{endDy},
+            C_ING_YN     = #{ingYn},
+            S_GRADE_NM   = #{gradeNm},
+            S_SMALL_CONT = #{smallCont},
+            S_EXP_DETAIL = #{expDetail}
+        WHERE C_PROJECT_SEQ = #{seq}
+    </update>
+
+    <update id="deleteExp" parameterType="Map">
+        UPDATE T_LD_EXPERIENCE_INFO SET C_USE_YN = 'N' WHERE C_PROJECT_SEQ = #{seq}
+    </update>
+
+    <update id="restoreExp" parameterType="Map">
+        UPDATE T_LD_EXPERIENCE_INFO SET C_USE_YN = 'Y' WHERE C_PROJECT_SEQ = #{seq}
+    </update>
+
+</mapper>
