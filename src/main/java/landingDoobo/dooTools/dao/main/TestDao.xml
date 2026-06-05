@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="landingDoobo.dooTools.dao.main.TestDao">
+
+	<select id="selectString" resultType="String">
+		-- doobo.project.biz.main.MainDao.selectString() --
+		-- 테스트 --
+		SELECT
+		    'testPage'
+		FROM
+		    dual
+	</select>
+	
+	<select id="selectList" resultType="Map" parameterType="Map">
+		-- doobo.project.biz.main.MainDao.selectList() --
+		-- 테스트 --
+		SELECT
+			tCont
+		FROM
+			T_TEST
+		WHERE 1 = 1
+			AND tNo = #{tNo}
+			AND tId = #{tId}
+	</select>
+
+	<select id="selectArray" resultType="Map" parameterType="Map">
+		-- doobo.project.biz.main.MainDao.selectArray() --
+		-- 테스트 --
+		SELECT
+			tCont
+		FROM
+			T_TEST
+		WHERE 1 = 1
+			AND tNo = #{lNo}
+	</select>
+</mapper>
