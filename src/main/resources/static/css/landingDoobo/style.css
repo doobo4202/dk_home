@@ -251,7 +251,7 @@ nav {
     font-size: 48px; overflow: hidden;
 }
 .project-info { padding: 22px; }
-.project-info h3 { font-size: 16px; font-weight: 700; margin-bottom: 10px; color: var(--text); }
+.project-info h3 { font-size: 16px; font-weight: 700; margin-bottom: 10px; color: var(--text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .project-tags { display: flex; flex-wrap: wrap; gap: 6px; }
 .project-tags span {
     background: var(--accent-light); color: var(--p1);
