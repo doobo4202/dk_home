@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="2e945638-1302-401e-aefc-d58c09992fa3" name="변경" comment="">
+      <change afterPath="$PROJECT_DIR$/../.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.claude/settings.local.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CLAUDE.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/design-preview/concept-1-dark.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/design-preview/concept-2-minimal.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/design-preview/concept-3-gradient.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/design-preview/concept-final.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/landingDoobo/LandingDooboApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/landingDoobo/controller/MainController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/landingDoobo/controller/admin/AdminController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/landingDoobo/controller/admin/CodeAdminController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/landingDoobo/controller/admin/ContactAdminController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/landingDoobo/controller/admin/DevInfoAdminController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/landingDoobo/controller/admin/ExperienceAdminController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/landingDoobo/controller/admin/FaqAdminController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/landingDoobo/controller/admin/ProjectAdminController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/landingDoobo/dao/CodeDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/landingDoobo/dao/ExperienceDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/landingDoobo/dao/FaqDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/landingDoobo/dao/MainDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/landingDoobo/dao/ProjectDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/landingDoobo/service/CodeService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/landingDoobo/service/ExperienceService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/landingDoobo/service/FaqService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/landingDoobo/service/MainService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/landingDoobo/service/ProjectService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/CodeMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/ExperienceMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/FaqMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/MainMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/ProjectMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/sql/init.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/admin/admin.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/common/common.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/dooTools/common/common.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/dooTools/include/include.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/include/include.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/jquery-ui/jquery-ui.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/jquery-ui/jquery.toast.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/landingDoobo/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/dooTools/logo_im.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/landingDoobo/dooboLogo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/landingDoobo/icon/icon_call.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/landingDoobo/icon/icon_email.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/landingDoobo/icon/icon_etc.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/landingDoobo/icon/icon_plus.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/landingDoobo/icon/icon_talk.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/landingDoobo/landingback.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/landingDoobo/photo.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/landingDoobo/project/img_ing.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/landingDoobo/project/project1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/landingDoobo/project/project2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/landingDoobo/project/project3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/landingDoobo/project/project4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/landingDoobo/project/project5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/landingDoobo/project/project6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/landingDoobo/project/project7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/landingDoobo/project/project8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/landingDoobo/projectTest.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/common/common.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/dooTools/common/common.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/dooTools/jquery/jquery-3.3.1.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/jquery-ui/jquery-ui.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/jquery-ui/jquery.datepick-ko.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/jquery-ui/jquery.ui.monthpicker.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/jquery/jquery-3.3.1.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/code/codeMgmt.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/contact/contactMgmt.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/devInfo/devInfoMgmt.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/experience/expMgmt.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/faq/faqMgmt.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/include/adminFooter.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/include/adminHeader.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/main.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/project/projMgmt.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/common/include/divAlert.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/common/include/header.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/dooTools/include/footer.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/dooTools/include/header.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/dooTools/include/navigationBar.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/dooTools/main/mainPage.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/landingDoobo/include/footer.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/landingDoobo/include/header.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/landingDoobo/include/navigationBar.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/landingDoobo/main/mainPage.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/landingDoobo/main/projectDetail.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/main/testPage.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/doobo/DooboApplicationTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/landingDoobo/LandingDooboApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.claude/settings.local.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CLAUDE.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../design-preview/concept-1-dark.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../design-preview/concept-2-minimal.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../design-preview/concept-3-gradient.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../design-preview/concept-final.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/landingDoobo/LandingDooboApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/landingDoobo/controller/MainController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/landingDoobo/controller/admin/AdminController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/landingDoobo/controller/admin/CodeAdminController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/landingDoobo/controller/admin/ContactAdminController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/landingDoobo/controller/admin/DevInfoAdminController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/landingDoobo/controller/admin/ExperienceAdminController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/landingDoobo/controller/admin/FaqAdminController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/landingDoobo/controller/admin/ProjectAdminController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/landingDoobo/dao/CodeDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/landingDoobo/dao/ExperienceDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/landingDoobo/dao/FaqDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/landingDoobo/dao/MainDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/landingDoobo/dao/ProjectDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/landingDoobo/service/CodeService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/landingDoobo/service/ExperienceService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/landingDoobo/service/FaqService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/landingDoobo/service/MainService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/landingDoobo/service/ProjectService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/resources/mapper/CodeMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/resources/mapper/ExperienceMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/resources/mapper/FaqMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/resources/mapper/MainMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/resources/mapper/ProjectMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/resources/sql/init.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/resources/static/css/admin/admin.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/resources/static/css/common/common.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/resources/static/css/dooTools/common/common.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/resources/static/css/dooTools/include/include.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/resources/static/css/include/include.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/resources/static/css/jquery-ui/jquery-ui.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/resources/static/css/jquery-ui/jquery.toast.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/resources/static/css/landingDoobo/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/resources/static/images/dooTools/logo_im.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/resources/static/images/landingDoobo/dooboLogo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/resources/static/images/landingDoobo/icon/icon_call.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/resources/static/images/landingDoobo/icon/icon_email.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/resources/static/images/landingDoobo/icon/icon_etc.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/resources/static/images/landingDoobo/icon/icon_plus.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/resources/static/images/landingDoobo/icon/icon_talk.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/resources/static/images/landingDoobo/landingback.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/resources/static/images/landingDoobo/photo.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/resources/static/images/landingDoobo/project/img_ing.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/resources/static/images/landingDoobo/project/project1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/resources/static/images/landingDoobo/project/project2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/resources/static/images/landingDoobo/project/project3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/resources/static/images/landingDoobo/project/project4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/resources/static/images/landingDoobo/project/project5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/resources/static/images/landingDoobo/project/project6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/resources/static/images/landingDoobo/project/project7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/resources/static/images/landingDoobo/project/project8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/resources/static/images/landingDoobo/projectTest.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/resources/static/js/common/common.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/resources/static/js/dooTools/common/common.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/resources/static/js/dooTools/jquery/jquery-3.3.1.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/resources/static/js/jquery-ui/jquery-ui.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/resources/static/js/jquery-ui/jquery.datepick-ko.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/resources/static/js/jquery-ui/jquery.ui.monthpicker.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/resources/static/js/jquery/jquery-3.3.1.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/webapp/WEB-INF/jsp/admin/code/codeMgmt.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/webapp/WEB-INF/jsp/admin/contact/contactMgmt.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/webapp/WEB-INF/jsp/admin/devInfo/devInfoMgmt.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/webapp/WEB-INF/jsp/admin/experience/expMgmt.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/webapp/WEB-INF/jsp/admin/faq/faqMgmt.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/webapp/WEB-INF/jsp/admin/include/adminFooter.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/webapp/WEB-INF/jsp/admin/include/adminHeader.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/webapp/WEB-INF/jsp/admin/main.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/webapp/WEB-INF/jsp/admin/project/projMgmt.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/webapp/WEB-INF/jsp/common/include/divAlert.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/webapp/WEB-INF/jsp/common/include/header.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/webapp/WEB-INF/jsp/dooTools/include/footer.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/webapp/WEB-INF/jsp/dooTools/include/header.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/webapp/WEB-INF/jsp/dooTools/include/navigationBar.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/webapp/WEB-INF/jsp/dooTools/main/mainPage.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/webapp/WEB-INF/jsp/landingDoobo/include/footer.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/webapp/WEB-INF/jsp/landingDoobo/include/header.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/webapp/WEB-INF/jsp/landingDoobo/include/navigationBar.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/webapp/WEB-INF/jsp/landingDoobo/main/mainPage.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/webapp/WEB-INF/jsp/landingDoobo/main/projectDetail.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/webapp/WEB-INF/jsp/main/testPage.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/test/java/com/doobo/DooboApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/test/java/landingDoobo/LandingDooboApplicationTests.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="EmbeddingIndexingInfo">
+    <option name="cachedIndexableFilesCount" value="104" />
+    <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="landingDoobo" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="landingDoobo" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="landingDoobo" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="application" type="c8890929:TasksNode$1" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="McpProjectServerCommands">
+    <commands />
+    <urls />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5,
+  &quot;fromUser&quot;: false
+}</component>
+  <component name="ProjectId" id="3Er4OYN8CKJ2Gk1e01YJA2Unegn" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Gradle.landingDoobo [bootRun].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.landingDoobo 빌드.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;Spring Boot.LandingDooboApplication.executor&quot;: &quot;Run&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/dk_projects/landingDoobo&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;프로젝트&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RunManager" selected="Gradle.landingDoobo [bootRun]">
+    <configuration name="landingDoobo [bootRun]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="bootRun" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <ExternalSystemDebugDisabled>false</ExternalSystemDebugDisabled>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <GradleProfilingDisabled>false</GradleProfilingDisabled>
+      <GradleCoverageDisabled>false</GradleCoverageDisabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="LandingDooboApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="landingDoobo.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.landingDoobo.LandingDooboApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.landingDoobo [bootRun]" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-30f59d01ecdd-37e91769500f-intellij.indexing.shared.core-IU-261.25134.95" />
+        <option value="bundled-js-predefined-d6986cc7102b-31caf2ab9e3c-JavaScript-IU-261.25134.95" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="디폴트 작업">
+      <changelist id="2e945638-1302-401e-aefc-d58c09992fa3" name="변경" comment="" />
+      <created>1780923322975</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1780923322975</updated>
+      <workItem from="1780929795598" duration="6000" />
+      <workItem from="1780929807940" duration="71000" />
+      <workItem from="1780929921545" duration="81000" />
+      <workItem from="1780930011171" duration="55000" />
+      <workItem from="1780930602618" duration="914000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
