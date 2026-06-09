@@ -2,7 +2,9 @@
   "permissions": {
     "allow": [
       "PowerShell(Head *)",
-      "WebFetch(domain:doobo4202.cafe24.com)"
+      "WebFetch(domain:doobo4202.cafe24.com)",
+      "Bash(Get-ChildItem -Path \"C:\\\\dk_projects\\\\landingDoobo\\\\src\\\\main\\\\java\" -Recurse -Filter \"*.java\")",
+      "Bash(Select-Object FullName)"
     ]
   },
   "hooks": {
