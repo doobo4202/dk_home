@@ -11,14 +11,17 @@
     $(document).on("click", "#navToggle", function () {
         $("#navMenu").toggleClass("open");
         $("#navDim").toggleClass("show");
+        $("body").toggleClass("nav-open");
     });
     $(document).on("click", "#navDim", function () {
         $("#navMenu").removeClass("open");
         $("#navDim").removeClass("show");
+        $("body").removeClass("nav-open");
     });
     $(document).on("click", "#navMenu a", function () {
         $("#navMenu").removeClass("open");
         $("#navDim").removeClass("show");
+        $("body").removeClass("nav-open");
     });
 </script>
 
@@ -36,5 +39,5 @@
             <span></span><span></span><span></span>
         </button>
     </div>
-    <div id="navDim" class="nav-dim"></div>
 </nav>
+<div id="navDim" class="nav-dim"></div>
