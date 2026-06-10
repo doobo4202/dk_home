@@ -15,8 +15,9 @@
             var detail = data.detail;
             $("#projectNm").html(detail.PROJECT_NM);
             $("#projectCont").html(detail.DETAIL_CONT);
-            if (detail.DETAIL_IMG) {
-                $("#mainImg").attr("src", detail.DETAIL_IMG);
+            var imgSrc = detail.SUM_IMG || detail.DETAIL_IMG || "";
+            if (imgSrc) {
+                $("#mainImg").attr("src", imgSrc);
             }
             var tags = detail.PROJECT_TAG ? detail.PROJECT_TAG.split("#").filter(function(v){ return v !== ""; }) : [];
             var tagHtml = "";
@@ -29,20 +30,20 @@
 
 <div class="project-popup-card">
     <button type="button" class="popup-close-btn" onclick="fn_closePopup()">×</button>
-    <h2 class="popup-header">프로젝트 상세</h2>
-    <div class="popup-inner">
-        <div class="popup-left">
-            <div class="main-image">
-                <img id="mainImg" src="/images/landingDoobo/project/img_ing.png" alt="project image">
-            </div>
+
+    <!-- 왼쪽 패널: 이미지 + 태그 -->
+    <div class="popup-left">
+        <div class="popup-left-badge">PROJECT</div>
+        <div class="popup-thumb">
+            <img id="mainImg" src="/images/landingDoobo/project/img_ing.png" alt="project image">
         </div>
-        <div class="popup-right">
-            <h3 class="popup-title" id="projectNm"></h3>
-            <div class="popup-tags" id="projectTag"></div>
-            <div class="popup-section">
-                <h4>상세 설명</h4>
-                <p id="projectCont"></p>
-            </div>
-        </div>
+        <div class="popup-tags" id="projectTag"></div>
+    </div>
+
+    <!-- 오른쪽 패널: 제목 + 설명 -->
+    <div class="popup-right">
+        <h3 class="popup-title" id="projectNm"></h3>
+        <div class="popup-section-label">Project Description</div>
+        <p class="popup-desc" id="projectCont"></p>
     </div>
 </div>

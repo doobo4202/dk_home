@@ -78,7 +78,8 @@
             S_TAG         PROJECT_TAG,
             DATE_FORMAT(STR_TO_DATE(C_START_DY, '%Y%m%d'), '%Y.%m') START_DY,
             DATE_FORMAT(STR_TO_DATE(C_END_DY,   '%Y%m%d'), '%Y.%m') END_DY,
-            S_DETAIL_IMG  DETAIL_IMG,
+            IFNULL(S_SUM_IMG, '')    SUM_IMG,
+            IFNULL(S_DETAIL_IMG, '') DETAIL_IMG,
             S_DETAIL_CONT DETAIL_CONT
         FROM T_LD_PROJECT_INFO
         WHERE C_PROJECT_SEQ = #{projectSeq}
